@@ -2,9 +2,9 @@ import requests
 
 class HtmlDownloader(object):
     def download(self, url):
-
         if url is None:
             return None
+
         headers = {
             'Accept-Language': 'zh-cn',
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -12,7 +12,7 @@ class HtmlDownloader(object):
         }
 
         res = requests.get(url, headers=headers)
+        res.encoding = 'gbk'
+        #print(res.text)
+        return  res.text
 
-        res.encoding = 'utf-8'
-
-        return res.text
