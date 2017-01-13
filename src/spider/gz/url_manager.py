@@ -4,6 +4,9 @@ class UrlManager(object):
         self.root_url = "http://www.gz.gov.cn/gzgov/gsgg/xw_list.shtml"
         self.page_urls = []
         self.news_urls = []
+        self.error_urls = ["http://www.gz.gov.cn/gzgov/gsgg/201603/946db0381a454872a6a46b256052d0a7.shtml",
+                           "http://www.gz.gov.cn/gzgov/gsgg/201511/e63c6363ad6c424a8c4360f499d7fbb2.shtml",
+                           ]
 
     def generate_page_urls(self):
         self.page_urls.append(self.root_url)
@@ -19,3 +22,6 @@ class UrlManager(object):
 
     def get_news_urls(self):
         return self.news_urls
+
+    def get_error_urls(self):
+        return self.error_urls

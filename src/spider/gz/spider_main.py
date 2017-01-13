@@ -1,7 +1,7 @@
-from gz_gov_spider import url_manager
-from gz_gov_spider import html_downloader
-from gz_gov_spider import html_parser
-from gz_gov_spider import html_outputer
+from spider.gz_gov_spider import html_downloader
+from spider.gz_gov_spider import html_parser
+from spider.gz_gov_spider import url_manager
+from spider.gz_gov_spider import html_outputer
 
 
 class SpiderMain(object):
@@ -24,9 +24,7 @@ class SpiderMain(object):
 
         for news_url in new_urls:
             print(news_url)
-            error = ["http://www.gz.gov.cn/gzgov/gsgg/201603/946db0381a454872a6a46b256052d0a7.shtml",
-                     "http://www.gz.gov.cn/gzgov/gsgg/201511/e63c6363ad6c424a8c4360f499d7fbb2.shtml",
-                     ]
+            error = self.urls.get_error_urls()
             if news_url not in error:
                 html_cont = self.downloader.download(news_url)
                 data= self.parser.paser_data(news_url,html_cont)
