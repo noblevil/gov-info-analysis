@@ -12,7 +12,7 @@ class SpiderMain(object):
         self.outputer = html_outputer.HtmlOutputer()
 
     def craw(self):
-        count = 1 #计数君
+
         #第一步先拿到所有要遍历的URL
         page_urls = self.urls.generate_page_urls()
         for page_url in page_urls:
@@ -21,7 +21,7 @@ class SpiderMain(object):
             self.urls.add_news_urls(new_urls)
 
         new_urls = self.urls.get_news_urls()
-
+        count = 1  # 计数君
         for news_url in new_urls:
             print(news_url)
             error = self.urls.get_error_urls()
@@ -30,6 +30,7 @@ class SpiderMain(object):
                 html_cont = self.downloader.download(news_url)
                 data= self.parser.paser_data(news_url,html_cont)
                 self.outputer.collect_data(data)
+            count = count + 1
 
         self.outputer.output_html()
 
