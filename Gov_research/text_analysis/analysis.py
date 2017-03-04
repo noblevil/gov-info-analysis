@@ -27,7 +27,7 @@ def word_frequency(text,city):
 
     datas = []
 
-    for word_freq in c.most_common(22):
+    for word_freq in c.most_common(30):
         word, freq = word_freq
         data = {}
         data["word"] = word
@@ -52,7 +52,7 @@ def word_frequency(text,city):
         fout.write("</html>")
 
 
-url = '/Users/noblevil/desktop/fs.html'
+url = '/Users/noblevil/desktop/jm.html'
 city = url.lstrip("Users/noblevil/desktop/").rsplit(".html")[0]
 text = extract_text(url)
 word_frequency(text,city)
