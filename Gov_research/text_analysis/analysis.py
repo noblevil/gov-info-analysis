@@ -52,7 +52,7 @@ def word_frequency(text,city):
         fout.write("</html>")
 
 
-url = '/Users/noblevil/desktop/jm.html'
+url = '/Users/noblevil/desktop/dg.html'
 city = url.lstrip("Users/noblevil/desktop/").rsplit(".html")[0]
 text = extract_text(url)
 word_frequency(text,city)
